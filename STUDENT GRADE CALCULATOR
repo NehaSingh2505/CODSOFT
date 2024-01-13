@@ -1,0 +1,41 @@
+import java.util.*;
+class Grade{
+    public String grade(int average){
+        return switch (average / 10) {
+            case 10 -> "A+";
+            case 9 -> "A";
+            case 8 -> "B+";
+            case 7 -> "B";
+            case 6 -> "C";
+            case 5 -> "D";
+            default -> "F";
+        };
+    }
+}
+public class Main{
+    public static void main(String[]args){
+        Grade g=new Grade();
+        Scanner sc=new Scanner(System.in);
+        System.out.println("enter the no. of subjects=");
+        int totalSubjects=sc.nextInt();
+        int totalMarks=0;
+
+        for(int i=0;i<totalSubjects;i++){
+            System.out.println("enter the obtained marks in subject:" +  (i+1));
+            int obtainedMarks=sc.nextInt();
+            totalMarks+=obtainedMarks;
+        }
+        int average=totalMarks/totalSubjects;     //percentage calculating
+
+
+        String Grade=g.grade(average);
+
+        System.out.println("Total marks obtained= " +totalMarks);
+        System.out.println("Total percentage= " +average+"%");
+        System.out.println("Grade obtained= " + Grade);
+
+        sc.close();
+
+
+    }
+}
